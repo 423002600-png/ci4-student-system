@@ -7,7 +7,7 @@ class Student extends BaseController
     public function index()
     {
         $model = new StudentModel();
-        $data['students'] = $model->paginate(5);
+        $data['students'] = $model->paginate(5); // show 5 records per page
         $data['pager'] = $model->pager;
         return view('students/index', $data);
     }

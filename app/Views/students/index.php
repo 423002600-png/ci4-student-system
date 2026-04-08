@@ -33,5 +33,7 @@
     </table>
 
     <!-- 📌 Pagination -->
-    <?= $pager->links() ?>
+    <div class="mt-3">
+        <?= $pager->links() ?>
+    </div>
 </div>
