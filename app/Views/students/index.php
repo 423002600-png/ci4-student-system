@@ -4,13 +4,15 @@
     <h2>Student List</h2>
     <a href="/student/create" class="btn btn-primary mb-3">Add Student</a>
 
+    <!-- 🔍 Search form -->
     <form action="/student/search" method="get" class="mb-3">
-    <div class="input-group">
-        <input type="text" name="q" class="form-control" placeholder="Search students...">
-        <button class="btn btn-primary" type="submit">Search</button>
-    </div>
-</form>
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search students...">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
 
+    <!-- 📄 Student table -->
     <table class="table table-bordered">
         <thead>
             <tr><th>Name</th><th>Email</th><th>Course</th><th>Actions</th></tr>
@@ -29,10 +31,9 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-<!-- 📌 Pagination -->
-<div class="mt-3">
-    <?= $pager->links() ?>
-</div>
 
-    <?= $pager->links() ?>
+    <!-- 📌 Pagination -->
+    <div class="mt-3">
+        <?= $pager->links() ?>
+    </div>
 </div>

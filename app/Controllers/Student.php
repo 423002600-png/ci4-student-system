@@ -6,12 +6,11 @@ class Student extends BaseController
 {
     public function index()
     {
-    $model = new \App\Models\StudentModel();
-    $data['students'] = $model->paginate(5); // show 5 records per page
-    $data['pager'] = $model->pager;
-    return view('students/index', $data);
+        $model = new StudentModel();
+        $data['students'] = $model->paginate(5); // show 5 records per page
+        $data['pager'] = $model->pager;
+        return view('students/index', $data);
     }
-
 
     public function create()
     {
@@ -54,22 +53,21 @@ class Student extends BaseController
         return redirect()->to('/student');
     }
 
+    // 🔍 Search method
     public function search()
     {
-    $keyword = $this->request->getGet('q');
-    $model = new \App\Models\StudentModel();
+        $keyword = $this->request->getGet('q');
+        $model = new StudentModel();
 
-    if ($keyword) {
-        $data['students'] = $model->like('name', $keyword)
-                                  ->orLike('email', $keyword)
-                                  ->orLike('course', $keyword)
-                                  ->findAll();
-    } else {
-        $data['students'] = $model->findAll();
+        if ($keyword) {
+            $data['students'] = $model->like('name', $keyword)
+                                      ->orLike('email', $keyword)
+                                      ->orLike('course', $keyword)
+                                      ->findAll();
+        } else {
+            $data['students'] = $model->findAll();
+        }
+
+        return view('students/index', $data);
     }
-
-    return view('students/index', $data);
-    }
-
 }
-
