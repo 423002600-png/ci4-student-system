@@ -1,17 +1,19 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <div class="container mt-4">
     <h2>Edit Student</h2>
     <form action="/student/update/<?= $student['id'] ?>" method="post">
         <div class="mb-3">
-            <label>Name</label>
-            <input type="text" name="name" value="<?= $student['name'] ?>" class="form-control">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" value="<?= $student['name'] ?>" class="form-control" id="name" required>
         </div>
         <div class="mb-3">
-            <label>Email</label>
-            <input type="email" name="email" value="<?= $student['email'] ?>" class="form-control">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" value="<?= $student['email'] ?>" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
-            <label>Course</label>
-            <input type="text" name="course" value="<?= $student['course'] ?>" class="form-control">
+            <label for="course" class="form-label">Course</label>
+            <input type="text" name="course" value="<?= $student['course'] ?>" class="form-control" id="course" required>
         </div>
         <button type="submit" class="btn btn-success">Update</button>
     </form>

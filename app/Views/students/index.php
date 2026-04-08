@@ -13,7 +13,7 @@
     </form>
 
     <!-- 📄 Student table -->
-    <table class="table table-bordered">
+    <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr><th>Name</th><th>Email</th><th>Course</th><th>Actions</th></tr>
         </thead>
