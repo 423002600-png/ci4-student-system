@@ -53,22 +53,21 @@ class Student extends BaseController
         return redirect()->to('/student');
     }
 
+    // 🔍 Search method
     public function search()
-{
-    $keyword = $this->request->getGet('q');
-    $model = new \App\Models\StudentModel();
+    {
+        $keyword = $this->request->getGet('q');
+        $model = new StudentModel();
 
-    if ($keyword) {
-        $data['students'] = $model->like('name', $keyword)
-                                  ->orLike('email', $keyword)
-                                  ->orLike('course', $keyword)
-                                  ->findAll();
-    } else {
-        $data['students'] = $model->findAll();
+        if ($keyword) {
+            $data['students'] = $model->like('name', $keyword)
+                                      ->orLike('email', $keyword)
+                                      ->orLike('course', $keyword)
+                                      ->findAll();
+        } else {
+            $data['students'] = $model->findAll();
+        }
+
+        return view('students/index', $data);
     }
-
-    return view('students/index', $data);
 }
-
-}
-
